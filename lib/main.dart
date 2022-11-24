@@ -1,3 +1,5 @@
+import 'package:chess/Home.dart';
+import 'package:chess/Login.dart';
 import 'package:flutter/material.dart';
 import 'Signup_page.dart';
 void main() {
@@ -14,9 +16,11 @@ class MyApp extends StatelessWidget {
           bodyText1: TextStyle(color: Colors.black54),
         ),
       ),
-      initialRoute: 'Signup',
+      initialRoute: 'Home',
       routes: {
         'Signup' : (context) => Signup(),
+        'Home' : (context) => Home(),
+        'Login' : (context) => Login(),
       },
     );
   }
