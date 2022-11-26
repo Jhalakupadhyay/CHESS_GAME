@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'package:chess/Home.dart';
-import 'Constants.dart';
-class Login extends StatelessWidget {
+import 'package:chess/Constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _auth = FirebaseAuth.instance;
+  String mail = "";
+  var password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +37,9 @@ class Login extends StatelessWidget {
             Container(
               width: 350.0,
               child: TextField(
+                onChanged: (value){
+                  mail = value;
+                },
                 style: const TextStyle(
                   color: Colors.black,
                 ),
@@ -44,6 +54,9 @@ class Login extends StatelessWidget {
             Container(
               width: 350.0,
               child: TextField(
+                onChanged: (value){
+                  password = value;
+                },
                 obscureText: true,
                 style: const TextStyle(
                   color: Colors.black,
@@ -58,7 +71,19 @@ class Login extends StatelessWidget {
             ),
             Container(
               width: 300.0,
-              child: ElevatedButton(onPressed:(){},
+              child: ElevatedButton(onPressed:(){
+                try{
+                  final user = _auth.signInWithEmailAndPassword(email: mail, password: password);
+                  if(user != Null)
+                    {
+                      Navigator.pushNamed(context, 'GAMEF');
+                    }
+                }
+                catch(e)
+                {
+                  print(e);
+                }
+              },
                 child: Text('Login'),),
             ),
           ],
