@@ -1,3 +1,4 @@
+import 'package:chess/Chess_Game_Page.dart';
 import 'package:chess/Game_First_Screen.dart';
 import 'package:chess/Home.dart';
 import 'package:chess/Login.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         'Home' : (context) => Home(),
         'Login' : (context) => Login(),
         'GAMEF' : (context) => GAMEF(),
+        'GAMEP' : (context) => GAMEP(),
       },
     );
   }
