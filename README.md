@@ -1,10 +1,12 @@
 # chess
 
-A new Flutter project.
+A simple chess game which is going to be a two player game.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1)download the zip file of the project.
+2)Unzip it at the desired folder.
+3)run the flolder in android studio.
 
 A few resources to get you started if this is your first Flutter project:
 
